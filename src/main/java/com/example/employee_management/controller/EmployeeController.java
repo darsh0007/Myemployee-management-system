@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/employees")   // all endpoints start with /api/employees
+@RequestMapping("/api/employees")   // all endpoints start with /api/employees - refer IBM utube vid
 public class EmployeeController {
 
     private final EmployeeService service;
@@ -15,7 +15,7 @@ public class EmployeeController {
     public EmployeeController(EmployeeService service) {
         this.service = service;
     }
-
+    //tried them all in postman and it works.
     // GET /api/employees
     @GetMapping
     public List<Employee> getAllEmployees() {

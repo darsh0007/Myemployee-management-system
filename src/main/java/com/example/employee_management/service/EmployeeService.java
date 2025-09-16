@@ -12,17 +12,16 @@ public class EmployeeService {
 
     private final EmployeeRepository repository;
 
-    // constructor injection (preferred in Spring Boot)
+    // constructor injection from 2030 notes
     public EmployeeService(EmployeeRepository repository) {
         this.repository = repository;
     }
-
     // get all employees
     public List<Employee> getAllEmployees() {
         return repository.findAll();
     }
 
-    // get one employee by id
+    // get an employee by id
     public Optional<Employee> getEmployeeById(Long id) {
         return repository.findById(id);
     }
@@ -44,7 +43,7 @@ public class EmployeeService {
                 .orElseThrow(() -> new RuntimeException("Employee not found"));
     }
 
-    // delete employee
+    // delete an employee
     public void deleteEmployee(Long id) {
         repository.deleteById(id);
     }
