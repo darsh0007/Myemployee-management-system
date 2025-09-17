@@ -4,6 +4,8 @@ import com.example.employee_management.model.Employee;
 import com.example.employee_management.repository.EmployeeRepository;
 import org.springframework.stereotype.Service;
 
+import com.example.employee_management.exception.EmployeeNotFoundException;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -40,11 +42,12 @@ public class EmployeeService {
                     emp.setDepartment(updated.getDepartment());
                     return repository.save(emp);
                 })
-                .orElseThrow(() -> new RuntimeException("Employee not found"));
+                .orElseThrow(() -> new EmployeeNotFoundException(id));
     }
 
     // delete an employee
     public void deleteEmployee(Long id) {
+        if (!repository.existsById(id)) throw new EmployeeNotFoundException(id);
         repository.deleteById(id);
     }
 }

@@ -1,6 +1,8 @@
 package com.example.employee_management.model;
 
-import jakarta.persistence.*;  // JPA annotations (Jakarta namespace in Spring Boot 3+)
+import jakarta.persistence.*;  // JPA annotations\
+import jakarta.validation.constraints.Email;        // Bean Validation
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "employees")    // setting the table name explicitly so JPA will map this class to employee table
@@ -10,12 +12,16 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for auto-increment
     private Long id;
 
+    @NotBlank(message = "Name is required") //added for validation after first git commit
     @Column(nullable = false)  // NOT NULL in database
     private String name;
 
+    @Email(message = "Email must be valid")
+    @NotBlank(message = "Email is required") //same as above @notblank
     @Column(nullable = false, unique = true)  // NOT NULL & UNIQUE key constraint
     private String email;
 
+    @NotBlank(message = "Department is required")
     @Column(nullable = false)  // NOT NULL
     private String department;
 
