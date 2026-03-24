@@ -188,7 +188,7 @@ Database (Drizzle ORM) -> Maps to -> Schema
        |
        v
 [PostgreSQL Database] -> Stores Tables (users, contacts, tags)
----
+```
 
 **Architecture Reference:** This follows the standard MVC pattern as described in:
 * Gamma, E., Helm, R., Johnson, R., & Vlissides, J. (1994). *Design Patterns: Elements of Reusable Object-Oriented Software.* Addison-Wesley.
