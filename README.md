@@ -23,16 +23,7 @@ It demonstrates clean architecture (Controller → Service → Repository → Da
 
 ---
 
-## Getting Started
-
-### 1. Clone the repo
-```bash
-git clone https://github.com/darsh0007/Myemployee-management-system.git
-cd Myemployee-management-system
-
-
-
-
+----
 # CardVault - System Design Document
 
 **Course:** EECS 3311 - Software Design  
@@ -197,3 +188,13 @@ Database (Drizzle ORM) -> Maps to -> Schema
        |
        v
 [PostgreSQL Database] -> Stores Tables (users, contacts, tags)
+---
+
+
+## Getting Started
+
+### 1. Clone the repo
+```bash
+git clone https://github.com/darsh0007/Myemployee-management-system.git
+cd Myemployee-management-system
+
