@@ -190,6 +190,38 @@ Database (Drizzle ORM) -> Maps to -> Schema
 [PostgreSQL Database] -> Stores Tables (users, contacts, tags)
 ---
 
+**Architecture Reference:** This follows the standard MVC pattern as described in:
+* Gamma, E., Helm, R., Johnson, R., & Vlissides, J. (1994). *Design Patterns: Elements of Reusable Object-Oriented Software.* Addison-Wesley.
+* MDN Web Docs - [MVC Architecture](https://developer.mozilla.org/en-US/docs/Glossary/MVC)
+
+## 4. Component Descriptions
+
+### Frontend (View)
+
+| Component | File | Purpose |
+|-----------|------|---------|
+| App | `App.tsx` | Root component, manages auth state and page routing |
+| AppLayout | `components/AppLayout.tsx` | Shell layout with sidebar, header, theme toggle, sign-out |
+| LoginPage | `pages/LoginPage.tsx` | Authentication entry point |
+| Dashboard | `pages/Dashboard.tsx` | Overview with stats, recent contacts, quick actions |
+| Contacts | `pages/Contacts.tsx` | Searchable/filterable contact table and grid |
+| ScanCard | `pages/ScanCard.tsx` | Business card image upload with drag-and-drop |
+| Favorites | `pages/Favorites.tsx` | Starred contacts display |
+| Tags | `pages/Tags.tsx` | Tag management with contact counts |
+| Settings | `pages/Settings.tsx` | Tabbed settings (Profile, Appearance, OCR, Data, About) |
+| ContactsAPI | `api/contacts.ts` | Typed API client for backend communication |
+
+### Backend (Controller + Model)
+
+| Component | File | Purpose |
+|-----------|------|---------|
+| ExpressApp | `src/index.ts` | Server initialization, middleware, route mounting |
+| UsersRouter | `src/routes/users.ts` | User CRUD endpoints |
+| ContactsRouter | `src/routes/contacts.ts` | Contact CRUD + favorites + tag assignment |
+| TagsRouter | `src/routes/tags.ts` | Tag CRUD with contact counts |
+| Database | `src/db/index.ts` | Drizzle ORM + PostgreSQL connection |
+| Schema | `src/db/schema.ts` | Table definitions and relations |
+| Seed | `src/db/seed.ts` | Sample data population script |
 
 ## Getting Started
 
